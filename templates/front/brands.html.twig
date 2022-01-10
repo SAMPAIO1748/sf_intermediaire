@@ -1,0 +1,13 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+	{% for brand in brands %}
+
+
+		<h2>
+			<a href="{{ path('brand_show', {'id' : brand.id}) }}">{{ brand.name }}</a>
+		</h2>
+	{% endfor %}
+
+{% endblock %}
