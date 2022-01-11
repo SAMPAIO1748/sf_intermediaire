@@ -4,7 +4,9 @@
 {% block main %}
 
 	{% for product in products %}
-		<h1>{{ product.name }}</h1>
+		<h1>
+			<a href="{{ path('admin_product_show', {'id' : product.id } ) }}">{{ product.name }}</a>
+		</h1>
 	{% endfor %}
 
 {% endblock %}

@@ -1,0 +1,17 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+	{{form_start(categoryForm)}}
+
+	{{form_label(categoryForm.name, 'Nom')}}
+	{{form_widget(categoryForm.name)}}
+
+	{{form_label(categoryForm.description, 'Description')}}
+	{{form_widget(categoryForm.description)}}
+
+	{{form_widget(categoryForm.Enregistrer)}}
+
+	{{form_end(categoryForm)}}
+
+{% endblock %}
