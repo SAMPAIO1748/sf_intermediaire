@@ -1,0 +1,26 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+	{{form_start(productForm)}}
+
+	{{form_label(productForm.name, 'Nom')}}
+	{{form_widget(productForm.name)}}
+
+	{{form_label(productForm.name, 'Prix')}}
+	{{form_widget(productForm.price)}}
+
+	{{form_label(productForm.name, 'Stock')}}
+	{{form_widget(productForm.stock)}}
+
+	{{form_label(productForm.name, 'Catégorie')}}
+	{{form_widget(productForm.category)}}
+
+	{{form_label(productForm.name, 'Marque')}}
+	{{form_widget(productForm.brand)}}
+
+	{{form_widget(productForm.Soumettre)}}
+
+	{{form_end(productForm)}}
+
+{% endblock %}
