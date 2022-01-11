@@ -1,0 +1,23 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+	{{ form_start(mediaForm) }}
+
+	{{ form_label(mediaForm.src, 'Fichier de l\'image') }}
+	{{ form_widget(mediaForm.src) }}
+
+    {{ form_label(mediaForm.alt, 'Alt de l\'image') }}
+	{{ form_widget(mediaForm.alt) }}
+
+	{{ form_label(mediaForm.title, 'Titre de l\'image') }}
+	{{ form_widget(mediaForm.title) }}
+
+    {{ form_label(mediaForm.product, 'Produit de l\'image') }}
+	{{ form_widget(mediaForm.product) }}
+
+	{{ form_widget(mediaForm.Enregistrer)}}
+
+	{{ form_end(mediaForm) }}
+
+{% endblock %}
