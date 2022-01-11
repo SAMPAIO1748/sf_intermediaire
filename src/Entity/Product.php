@@ -34,11 +34,13 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=Brand::class, inversedBy="products")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $brand;
 
