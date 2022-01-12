@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminCategoryController extends AbstractController
 {
@@ -62,7 +63,7 @@ class AdminCategoryController extends AbstractController
     /**
      * @Route("admin/create/category/", name="admin_category_create")
      */
-    public function adminCategoryCreate(Request $request, EntityManagerInterface $entityManagerInterface)
+    public function adminCategoryCreate(Request $request, EntityManagerInterface $entityManagerInterface, SluggerInterface $sluggerInterface)
     {
         $category = new Category();
 
@@ -71,6 +72,37 @@ class AdminCategoryController extends AbstractController
         $categoryForm->handleRequest($request);
 
         if ($categoryForm->isSubmitted() && $categoryForm->isValid()) {
+
+            // On récupère le fichier que l'on rentre dans le champs du formulaire
+            $mediaFile = $categoryForm->get('media')->getData();
+
+            if ($mediaFile) {
+
+                // On crée un nom unique avec le nom original de l'image pour éviter 
+                // tout problème lors de l'enregistrement dans le dossier public
+
+                // on récupère le nom original du fichier
+                $originalFilename = pathinfo($mediaFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // On utilise slug sur le nom original pouur avoir un nom valide
+                $safeFilename = $sluggerInterface->slug($originalFilename);
+
+                // On ajoute un id unique au nom du fichier
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $mediaFile->guessExtension();
+
+                // On déplace le fichier dans le dossier public/media
+                // la destination est définie dans 'images_directory'
+                // du fichier config/services.yaml
+
+                $mediaFile->move(
+                    $this->getParameter('images_directory'),
+                    $newFilename
+                );
+
+                $category->setMedia($newFilename);
+            }
+
+
             $entityManagerInterface->persist($category);
             $entityManagerInterface->flush();
 
