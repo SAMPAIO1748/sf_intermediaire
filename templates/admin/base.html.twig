@@ -9,8 +9,8 @@
 	<body>
 
 
-		{% for grpoduct in gproducts.getAll %}
-			<h3>{{ grpoduct.name }}</h3>
+		{% for gproduct in gproducts.getAll %}
+			<h3>{{ gproduct.name }}</h3>
 		{% endfor %}
 
 		{% block main %}{% endblock %}
