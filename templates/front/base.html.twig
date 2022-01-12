@@ -8,6 +8,14 @@
 	</head>
 	<body>
 
+		{% for gcategory in gcategories.getAll() %}
+			<h2>{{ gcategory.name }}</h2>
+		{% endfor %}
+
+		{% for gbrand in gbrands.getAll %}
+			<h2>{{ gbrand.name }}</h2>
+		{% endfor %}
+
 		{% block main %}{% endblock %}
 
 	</body>
