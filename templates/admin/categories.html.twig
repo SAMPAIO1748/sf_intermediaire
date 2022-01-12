@@ -2,6 +2,8 @@
 
 {% block main %}
 
+	<h1>{{ admin }}</h1>
+
 	{% for category in categories %}
 
 		<img src="{{ asset('media/' ~ category.media) }}" alt="{{ category.name }}">

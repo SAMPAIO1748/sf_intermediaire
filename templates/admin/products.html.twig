@@ -3,6 +3,8 @@
 
 {% block main %}
 
+	<h1>{{ admin }}</h1>
+
 	{% for product in products %}
 		<img src="{{ asset('media/' ~ product.media[0].src) }}" alt="{{product.media[0].alt}}">
 		<h1>

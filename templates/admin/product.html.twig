@@ -2,6 +2,9 @@
 
 {% block main %}
 
+
+	<h1>{{ admin }}</h1>
+
 	{% for image in product.media %}
 
 		<img src="{{ asset('media/' ~ image.src) }}" alt="{{ image.alt }}">
