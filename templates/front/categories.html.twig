@@ -3,7 +3,7 @@
 {% block main %}
 
 	{% for category in categories %}
-
+		<img src="{{ asset('media/' ~ category.media) }}" alt="{{ category.name }}">
 		<h2>
 			<a href="{{ path("category_show", {'id' : category.id } ) }}">{{category.name}}</a>
 		</h2>

@@ -4,6 +4,7 @@
 
 	{% for brand in brands %}
 
+		<img src="{{ asset('media/' ~ brand.media) }}" alt="{{ brand.name }}">
 		<h2>
 			<a href="{{ path("admin_brand_show", {'id' : brand.id } ) }}">
 				{{ brand.name }}

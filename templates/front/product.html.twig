@@ -2,6 +2,11 @@
 
 {% block main %}
 
+	{% for image in product.media %}
+
+		<img src="{{ asset('media/' ~ image.src) }}" alt="{{ image.alt }}">
+
+	{% endfor %}
 	<h2>{{ product.name }}</h2>
 	<h3>{{ product.price }}</h3>
 
