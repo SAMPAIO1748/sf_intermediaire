@@ -2,6 +2,9 @@
 
 {% block main %}
 
+	<h1>{{ batman }}
+	</h1>
+
 	{% for category in categories %}
 		<img src="{{ asset('media/' ~ category.media) }}" alt="{{ category.name }}">
 		<h2>
