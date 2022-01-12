@@ -5,6 +5,7 @@ twig:
     batman: "Batman & Robin"
     front: "Vous êtes sur la partie front"
     admin: "Vous êtes sur la partie admin"
+    gproducts: '@App\Globals\Products'
 
 when@test:
   twig:
