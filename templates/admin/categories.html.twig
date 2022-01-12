@@ -4,6 +4,7 @@
 
 	{% for category in categories %}
 
+		<img src="{{ asset('media/' ~ category.media) }}" alt="{{ category.name }}">
 		<h2>
 			<a href="{{ path('admin_category_show', {'id' : category.id }) }}">{{ category.name }}
 			</a>
