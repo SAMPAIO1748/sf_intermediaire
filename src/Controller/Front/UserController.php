@@ -30,6 +30,7 @@ class UserController extends AbstractController
 
         if ($userForm->isSubmitted() && $userForm->isValid()) {
             $user->setRoles(["ROLE_USER"]);
+            $user->setDate(new \DateTime("NOW"));
 
             // On récupère le mot de passe entré dans le formulaire
             $plainPassWord = $userForm->get('password')->getData();
